@@ -9,26 +9,24 @@ pieceList=[]
 positionList=[]
 win = False
 
+#This is the main process of the game
 def main(usr1,usr2):
     pygame.init()
     root = pygame.display.set_mode((800,600))
     pygame.display.set_caption("Quarto")
-    rectangulo = pygame.Rect(0, 0, 230, 800)
+    rectangle = pygame.Rect(0, 0, 230, 800)
+    blackrect = pygame.Rect(390, 375, 310, 186)
     mouse = pygame.Rect(0,0,0,0)
     clock = pygame.time.Clock()
     font = pygame.font.SysFont("comicsansms", 30)
-    user1 = font.render(usr1.getName()+": "+str(usr1.getScore()), 1, (255, 255, 255))
-    user2 = font.render(usr2.getName()+": "+str(usr2.getScore()), 1, (255, 255, 255))
     turn = False
     usr = usr1
 
-    global flag
-    flag = False
     selected = 0
     global win
     win = False
 
-    #positions
+    #positions of the pieces
     p1 = Piece("p1",30,20,"images/big_nonvoided_blue_circle.png","nonvoid","circle","blue","big",False,False)
     pieceList.append(p1)
     p2 = Piece("p2",140,30,"images/small_nonvoided_blue_circle.png","nonvoid","circle","blue","small",False,False)
@@ -62,10 +60,15 @@ def main(usr1,usr2):
     p16 = Piece("p16",40,520,"images/small_voided_red_square.png","void","square","red","small",False,False)
     pieceList.append(p16)
 
+    quarto = pygame.image.load("images/quarto.png")
+
+    #loads the image of the table
     table = pygame.image.load("images/table.png")
 
-    pygame.draw.rect(root, (255, 255, 255), rectangulo)
+    #draws the rectangle where the pieces are
+    pygame.draw.rect(root, (255, 255, 255), rectangle)
 
+    #draws all the pieces
     piece1 = pygame.draw.rect(root, (255, 255, 255), (30,20,60,60))
     piece2 = pygame.draw.rect(root, (255, 255, 255), (140,30,40,40))
     piece3 = pygame.draw.rect(root, (255, 255, 255), (130,90,60,60))
@@ -83,6 +86,7 @@ def main(usr1,usr2):
     piece15 = pygame.draw.rect(root, (255, 255, 255), (130,510,60,60))
     piece16 = pygame.draw.rect(root, (255, 255, 255), (40,520,40,40))
 
+    #creates all the positions in the table
     i0j0 = Position("i0j0",(407, 37, 70, 70),False,root,(255,255,255),0)
     i0j0.setRect()
     positionList.append(i0j0)
@@ -132,11 +136,13 @@ def main(usr1,usr2):
     i3j3.setRect()
     positionList.append(i3j3)
 
+    #creates a matrix with all the positions in
     matrix = [i0j0, i0j1, i0j2, i0j3], \
             [i1j0, i1j1, i1j2, i1j3], \
             [i2j0, i2j1, i2j2, i2j3], \
             [i3j0, i3j1, i3j2, i3j3]
 
+    #returns if there's a winner
     def setWin():
         # void/nonvoid
         # i
@@ -439,6 +445,7 @@ def main(usr1,usr2):
             matrix[2][1].getPiece().getSize() == "small" and matrix[3][0].getPiece().getSize() == "small" and win == False:
                 return True
 
+    #deactives all the pieces that are selected to select another one
     def deactivate():
         i = 0
         while i < len(pieceList):
@@ -446,116 +453,113 @@ def main(usr1,usr2):
                 pieceList[i].setSelected(False)
             i+=1
 
+    #main loop of the game
     while True:
+        #gets the position of the mouse
         mouse.left,mouse.top = pygame.mouse.get_pos()
+
+        #declares the users
+        user1 = font.render(usr1.getName() + ": " + str(usr1.getScore()), 1, (255, 255, 255))
+        user2 = font.render(usr2.getName() + ": " + str(usr2.getScore()), 1, (255, 255, 255))
+
+        #turns method to know who is next
         if turn == False:
             usr = usr1
         elif turn == True:
             usr = usr2
 
+        #declares all the events
         for event in pygame.event.get():
+            #this event closes
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            #this events does things when you click on the button
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mx,my = pygame.mouse.get_pos()
+                #all these ifs get the piece that is pressed
                 if mouse.colliderect(piece1):
                     deactivate()
                     p1.setSelected(True)
                     selected = p1
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece2):
                     deactivate()
                     p2.setSelected(True)
                     selected = p2
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece3):
                     deactivate()
                     p3.setSelected(True)
                     selected = p3
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece4):
                     deactivate()
                     p4.setSelected(True)
                     selected = p4
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece5):
                     deactivate()
                     p5.setSelected(True)
                     selected = p5
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece6):
                     deactivate()
                     p6.setSelected(True)
                     selected = p6
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece7):
                     deactivate()
                     p7.setSelected(True)
                     selected = p7
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece8):
                     deactivate()
                     p8.setSelected(True)
                     selected = p8
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece9):
                     deactivate()
                     p9.setSelected(True)
                     selected = p9
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece10):
                     deactivate()
                     p10.setSelected(True)
                     selected = p10
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece11):
                     deactivate()
                     p11.setSelected(True)
                     selected = p11
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece12):
                     deactivate()
                     p12.setSelected(True)
                     selected = p12
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece13):
                     deactivate()
                     p13.setSelected(True)
                     selected = p13
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece14):
                     deactivate()
                     p14.setSelected(True)
                     selected = p14
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece15):
                     deactivate()
                     p15.setSelected(True)
                     selected = p15
-                    flag = True
                     print(selected.getName())
                 if mouse.colliderect(piece16):
                     deactivate()
                     p16.setSelected(True)
                     selected = p16
-                    flag = True
                     print(selected.getName())
 
+                #this other ifs moves the pieces into the table
                 print("(" + str(mx) + ", " + str(my) + ")")
                 if mouse.colliderect(i0j0.getRect()) and selected!=0 and selected.getUsed() == False and i0j0.getUsed() == False:
                     selected.setPositionX(440-28)
@@ -574,8 +578,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -598,8 +606,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -621,8 +633,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -644,8 +660,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -667,8 +687,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -690,8 +714,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -713,8 +741,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -736,8 +768,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -759,8 +795,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -782,8 +822,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -805,8 +849,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -828,8 +876,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -851,8 +903,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -874,8 +930,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -897,8 +957,12 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
@@ -920,16 +984,23 @@ def main(usr1,usr2):
 
                     if turn == False:
                         turn = True
+                        usr1.sumScore()
+                        print(str(usr1.getScore()))
                     else:
                         turn = False
+                        usr2.sumScore()
+                        print(str(usr2.getScore()))
 
                     if setWin() == True:
                         win = True
                         print("ALGUIEN GANÓ!")
 
+        #updates the images and rectangles of the game
         root.blit(table, (400, 30))
+        #root.blit(quarto, ())
         for piece in pieceList:
             root.blit(piece.getImage(), (piece.getPositionX(), piece.getPositionY()))
+        pygame.draw.rect(root, (0, 0, 0), blackrect)
         root.blit(user1, (407, 380))
         root.blit(user2, (407, 440))
         inning = font.render("Turn: " + usr.getName(), 1, (255, 255, 255))
