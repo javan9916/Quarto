@@ -1,12 +1,15 @@
 import pygame,sys
 from Piece import *
+from Stat import *
 from pygame import *
 from Position import *
 from Match import *
 
 pieceList=[]
 positionList=[]
+matchList=[]
 win = False
+
 
 #This is the main process of the game
 def main(usr1,usr2):
@@ -15,11 +18,18 @@ def main(usr1,usr2):
     pygame.display.set_caption("Quarto")
     rectangle = pygame.Rect(0, 0, 230, 800)
     blackrect = pygame.Rect(390, 375, 310, 186)
+    blackrect2 = pygame.Rect(240, 150, 100 , 100)
     mouse = pygame.Rect(0,0,0,0)
     clock = pygame.time.Clock()
     font = pygame.font.SysFont("comicsansms", 30)
     turn = False
     usr = usr1
+
+    newStat = Stat()
+    for
+    newStat.readMatchs(matchList)
+    matchNumber = len(matchList) + 1
+
 
     global reason
     reason = ""
@@ -144,6 +154,7 @@ def main(usr1,usr2):
             [i1j0, i1j1, i1j2, i1j3], \
             [i2j0, i2j1, i2j2, i2j3], \
             [i3j0, i3j1, i3j2, i3j3]
+
 
     #returns the reason that has set the win
     def setReason():
@@ -841,6 +852,8 @@ def main(usr1,usr2):
 
     #main loop of the game
     while True:
+        newMatch = Match(matchNumber, [usr1.getName(), usr2.getName()], [usr1.getPlays(), usr2.getPlays()])
+
         #gets the position of the mouse
         mouse.left,mouse.top = pygame.mouse.get_pos()
 
@@ -975,10 +988,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
                     #sets variable win in true and gets the reason
                     if setWin() == True:
                         reason = setReason()
@@ -1008,10 +1023,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1041,10 +1058,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1074,10 +1093,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1107,10 +1128,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1140,10 +1163,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1173,10 +1198,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1206,10 +1233,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1239,10 +1268,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1272,10 +1303,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1305,10 +1338,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1338,10 +1373,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1371,10 +1408,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1404,10 +1443,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1437,10 +1478,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1470,10 +1513,12 @@ def main(usr1,usr2):
                         turn = True
                         usr1.sumScore()
                         print(str(usr1.getScore()))
+                        usr1.sumPlays()
                     else:
                         turn = False
                         usr2.sumScore()
                         print(str(usr2.getScore()))
+                        usr2.sumPlays()
 
                     if setWin() == True:
                         reason = setReason()
@@ -1493,7 +1538,7 @@ def main(usr1,usr2):
                             score2 = usr2.getScore()
                             score2 += usr1.getScore()
                             usr1.setScore(score2)
-                        finalScreen(reason,usr1,usr2)
+                        resultScreen(reason,usr1,usr2,newMatch)
                     elif win == False:
                         if usr1.getScore() == usr2.getScore() and i0j0.getPiece()!=0 and i0j1.getPiece()!=0 and i0j2.getPiece()!=0 and i0j3.getPiece()!=0 and \
                             i1j0.getPiece()!=0 and i1j1.getPiece()!=0  and i1j2.getPiece()!=0 and i1j3.getPiece()!=0 and \
@@ -1515,9 +1560,10 @@ def main(usr1,usr2):
                                 score2 -= 2
                                 usr1.setScore(score2)
 
-        #updates the images and rectangles of the game
+        #updates the images, rectangles and texts of the game
         root.blit(table, (400, 30))
         root.blit(quarto, (235,36))
+        pygame.draw.rect(root, (0, 0, 0), blackrect2)
         pygame.draw.rect(root, (255, 255, 255), rectangle)
         for piece in pieceList:
             root.blit(piece.getImage(), (piece.getPositionX(), piece.getPositionY()))
@@ -1526,11 +1572,13 @@ def main(usr1,usr2):
         root.blit(user2, (407, 440))
         inning = font.render("Turn: " + usr.getName(), 1, (255, 255, 255))
         root.blit(inning, (407, 510))
+        mNumber = font.render("#" + str(len(matchList)+1), 1, (255, 255, 255))
+        root.blit(mNumber, (240, 150))
         clock.tick(25)
         pygame.display.update()
 
 #this method open the results screen
-def finalScreen(reason,usr1,usr2):
+def resultScreen(reason,usr1,usr2,newMatch):
     pygame.init()
     screen = pygame.display.set_mode((600, 400))
     pygame.display.set_caption("Results")
@@ -1552,11 +1600,11 @@ def finalScreen(reason,usr1,usr2):
                 mx, my = pygame.mouse.get_pos()
                 print("(" + str(mx) + ", " + str(my) + ")")
                 if mouse.colliderect(finishbtn):
+                    matchList.append(newMatch)
+                    newStat = Stat()
+                    newStat.writeMatch(matchList)
                     pygame.quit()
                     sys.exit()
-
-
-
 
         pygame.draw.rect(screen, (0, 0, 0), blackrect)
         rsn = font2.render(reason, 1, (255,255,255))
@@ -1567,3 +1615,4 @@ def finalScreen(reason,usr1,usr2):
         screen.blit(user2, (30,150))
         screen.blit(finish, (200, 250))
         pygame.display.update()
+
