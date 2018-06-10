@@ -1,9 +1,9 @@
+from Match import *
 class Stat:
     def __init__(self):
         self.__matchStats = "matchStats.txt"
 
     def writeMatch(self, matchList):
-        try:
             file = open(self.__matchStats,"a")
             info = ""
 
@@ -19,20 +19,20 @@ class Stat:
                     play2 = match.getTotalPlays()[1]
                     i+=1
 
-                info += str(match.getMatchNumber())+"$"+name1+","+name2+"$"+str(play1)+","+str(play2)+"\n"
+                info += str(match.getMatchNumber())+"$"+name1+","+name2+"$"+str(play1)+","+str(play2)
 
             file.write(info)
             file.close()
 
-        except:
-            print("Archivo no disponible")
 
     def readMatchs(self, matchList):
         try:
             file = open(self.__matchStats, "r")
 
             for linea in file.readlines():
-                print(linea)
+                matchNumber, gamerNames, totalPlays = linea.split("$")
+                match = Match(matchNumber,[gamerNames],[totalPlays])
+                matchList.append(match)
 
             file.close()
 

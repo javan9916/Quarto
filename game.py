@@ -24,11 +24,14 @@ def main(usr1,usr2):
     font = pygame.font.SysFont("comicsansms", 30)
     turn = False
     usr = usr1
+    
 
     newStat = Stat()
-    for
     newStat.readMatchs(matchList)
-    matchNumber = len(matchList) + 1
+    matchNumber = len(matchList) +1
+
+    for match in matchList:
+        print(match.getMatchNumber())
 
 
     global reason
