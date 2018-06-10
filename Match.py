@@ -10,3 +10,4 @@ class Match:
 
     def getReason(self):
         return self.__reason
+
