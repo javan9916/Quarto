@@ -2,9 +2,8 @@ import pygame,sys
 from Piece import *
 from pygame import *
 from Position import *
+from Match import *
 
-global seconds
-seconds = 0
 pieceList=[]
 positionList=[]
 win = False
@@ -22,6 +21,7 @@ def main(usr1,usr2):
     turn = False
     usr = usr1
 
+    global reason
     reason = ""
     selected = 0
     global win
@@ -152,7 +152,7 @@ def main(usr1,usr2):
         if matrix[0][0].getPiece() != 0 and matrix[0][1].getPiece() != 0 and matrix[0][2].getPiece() != 0 and matrix[0][3].getPiece() != 0:
             if matrix[0][0].getPiece().getMorph() == "void" and matrix[0][1].getPiece().getMorph() == "void" and \
             matrix[0][2].getPiece().getMorph() == "void" and matrix[0][3].getPiece().getMorph() == "void" and win == False:
-                reason = "The user won with the void pieces in the columns of the row 1"
+
                 return True
             elif matrix[0][0].getPiece().getMorph() == "nonvoid" and matrix[0][1].getPiece().getMorph() == "nonvoid" and \
             matrix[0][2].getPiece().getMorph() == "nonvoid" and matrix[0][3].getPiece().getMorph() == "nonvoid" and win == False:
@@ -538,8 +538,6 @@ def main(usr1,usr2):
 
     #main loop of the game
     while True:
-
-
         #gets the position of the mouse
         mouse.left,mouse.top = pygame.mouse.get_pos()
 
@@ -646,7 +644,7 @@ def main(usr1,usr2):
 
                 #this other ifs moves the pieces into the table
                 print("(" + str(mx) + ", " + str(my) + ")")
-                if mouse.colliderect(i0j0.getRect()) and selected!=0 and selected.getUsed() == False and i0j0.getUsed() == False:
+                if mouse.colliderect(i0j0.getRect()) and selected != 0 and selected.getUsed() == False and i0j0.getUsed() == False:
                     selected.setPositionX(440-28)
                     selected.setPositionY(69-28)
                     i0j0.setUsed(True)
@@ -1090,6 +1088,7 @@ def main(usr1,usr2):
                             score2 = usr2.getScore()
                             score2 += usr1.getScore()
                             usr1.setScore(score2)
+                        finalScreen(reason,usr1,usr2)
                     elif win == False:
                         if usr1.getScore() == usr2.getScore() and i0j0.getPiece()!=0 and i0j1.getPiece()!=0 and i0j2.getPiece()!=0 and i0j3.getPiece()!=0 and \
                             i1j0.getPiece()!=0 and i1j1.getPiece()!=0  and i1j2.getPiece()!=0 and i1j3.getPiece()!=0 and \
@@ -1111,7 +1110,6 @@ def main(usr1,usr2):
                                 score2 -= 2
                                 usr1.setScore(score2)
 
-
         #updates the images and rectangles of the game
         root.blit(table, (400, 30))
         root.blit(quarto, (235,36))
@@ -1124,3 +1122,26 @@ def main(usr1,usr2):
         root.blit(inning, (407, 510))
         clock.tick(25)
         pygame.display.update()
+
+#this method open the results screen
+def finalScreen(reason,usr1,usr2):
+    pygame.init()
+    screen = pygame.display.set_mode((600, 400))
+    pygame.display.set_caption("Results")
+    font = pygame.font.SysFont("comicsansms", 30)
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mx, my = pygame.mouse.get_pos()
+                print("(" + str(mx) + ", " + str(my) + ")")
+
+        rsn = font.render(reason, 1, (255,255,255))
+        screen.blit(rsn, (26,24))
+        user1 = font.render(usr1.getName() + ": " + str(usr1.getScore()), 1, (255, 255, 255))
+        user2 = font.render(usr2.getName() + ": " + str(usr2.getScore()), 1, (255, 255, 255))
+        screen.blit(user1, (26,140))
+        screen.blit(user2, (330,140))
