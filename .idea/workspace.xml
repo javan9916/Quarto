@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f5e16ac-6884-4df0-ad7c-7b92ab88c441" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/User.py" beforeDir="false" afterPath="$PROJECT_DIR$/User.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,11 +29,10 @@
       <file leaf-file-name="game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="999" column="9" selection-start-line="999" selection-start-column="9" selection-end-line="999" selection-end-column="9" />
+            <state relative-caret-position="-107">
+              <caret line="1079" lean-forward="true" selection-start-line="1079" selection-end-line="1079" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#6370#33805#0" />
               </folding>
             </state>
           </provider>
@@ -43,8 +41,8 @@
       <file leaf-file-name="Position.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Position.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="403">
+              <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -93,10 +91,10 @@
         <option value="$PROJECT_DIR$/table.py" />
         <option value="$PROJECT_DIR$/Piece.py" />
         <option value="$PROJECT_DIR$/Table.py" />
-        <option value="$PROJECT_DIR$/Position.py" />
         <option value="$PROJECT_DIR$/../Semana14Archivos/main.py" />
         <option value="$PROJECT_DIR$/User.py" />
         <option value="$PROJECT_DIR$/menu.py" />
+        <option value="$PROJECT_DIR$/Position.py" />
         <option value="$PROJECT_DIR$/game.py" />
       </list>
     </option>
@@ -342,7 +340,6 @@
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -370,7 +367,6 @@
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -398,7 +394,6 @@
           <caret line="95" column="23" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="23" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -426,7 +421,6 @@
           <caret line="54" column="26" lean-forward="true" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -454,7 +448,6 @@
           <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -482,7 +475,6 @@
           <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -510,7 +502,6 @@
           <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -538,7 +529,6 @@
           <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -566,7 +556,6 @@
           <caret line="48" column="15" lean-forward="true" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -594,7 +583,6 @@
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>
@@ -657,16 +645,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Semana14Archivos/main.py" />
-    <entry file="file://$PROJECT_DIR$/Position.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Piece.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -691,13 +669,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Position.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="999" column="9" selection-start-line="999" selection-start-column="9" selection-end-line="999" selection-end-column="9" />
+        <state relative-caret-position="-107">
+          <caret line="1079" lean-forward="true" selection-start-line="1079" selection-end-line="1079" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#6370#33805#0" />
           </folding>
         </state>
       </provider>

@@ -22,6 +22,7 @@ def main(usr1,usr2):
     turn = False
     usr = usr1
 
+    reason = ""
     selected = 0
     global win
     win = False
@@ -60,6 +61,8 @@ def main(usr1,usr2):
     p16 = Piece("p16",40,520,"images/small_voided_red_square.png","void","square","red","small",False,False)
     pieceList.append(p16)
 
+    #draws the button and loads the image of the quarto button
+    quartobtn = pygame.draw.rect(root, (0,0,0), (235,36,165,62))
     quarto = pygame.image.load("images/quarto.png")
 
     #loads the image of the table
@@ -145,304 +148,384 @@ def main(usr1,usr2):
     #returns if there's a winner
     def setWin():
         # void/nonvoid
-        # i
+        # rows
         if matrix[0][0].getPiece() != 0 and matrix[0][1].getPiece() != 0 and matrix[0][2].getPiece() != 0 and matrix[0][3].getPiece() != 0:
             if matrix[0][0].getPiece().getMorph() == "void" and matrix[0][1].getPiece().getMorph() == "void" and \
             matrix[0][2].getPiece().getMorph() == "void" and matrix[0][3].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the columns of the row 1"
                 return True
             elif matrix[0][0].getPiece().getMorph() == "nonvoid" and matrix[0][1].getPiece().getMorph() == "nonvoid" and \
             matrix[0][2].getPiece().getMorph() == "nonvoid" and matrix[0][3].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the column of the row 1"
                 return True
         if matrix[1][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[1][3].getPiece() != 0:
             if matrix[1][0].getPiece().getMorph() == "void" and matrix[1][1].getPiece().getMorph() == "void" and \
             matrix[1][2].getPiece().getMorph() == "void" and matrix[1][3].getPiece().getMorphv == "void" and win == False:
+                reason = "The user won with the void pieces in the columns of the row 2"
                 return True
             elif matrix[1][0].getPiece().getMorph() == "nonvoid" and matrix[1][1].getPiece().getMorph() == "nonvoid" and \
             matrix[1][2].getPiece().getMorph == "nonvoid" and matrix[1][3].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the column of the row 2"
                 return True
         if matrix[2][0].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[2][3].getPiece() != 0:
             if matrix[2][0].getPiece().getMorph() == "void" and matrix[2][1].getPiece().getMorph() == "void" and \
             matrix[2][2].getPiece().getMorph() == "void" and matrix[2][3].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the columns of the row 3"
                 return True
             elif matrix[2][0].getPiece().getMorph() == "nonvoid" and matrix[2][1].getPiece().getMorph() == "nonvoid" and \
             matrix[2][2].getPiece().getMorph() == "nonvoid" and matrix[2][3].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the column of the row 3"
                 return True
         if matrix[3][0].getPiece() != 0 and matrix[3][1].getPiece() != 0 and matrix[3][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[3][0].getPiece().getMorph() == "void" and matrix[3][1].getPiece().getMorph() == "void" and \
             matrix[3][2].getPiece().getMorph() == "void" and matrix[3][3].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the columns of the row 4"
                 return True
             elif matrix[3][0].getPiece().getMorph() == "nonvoid" and matrix[3][1].getPiece().getMorph() == "nonvoid" and \
             matrix[3][2].getPiece().getMorph() == "nonvoid" and matrix[3][3].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the column of the row 4"
                 return True
-        # j
+        # columns
         if matrix[0][0].getPiece() != 0 and matrix[1][0].getPiece() != 0 and matrix[2][0].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][0].getPiece().getMorph() == "void" and matrix[1][0].getPiece().getMorph() == "void" and \
             matrix[2][0].getPiece().getMorph() == "void" and matrix[3][0].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the rows of the column 1"
                 return True
             elif matrix[0][0].getPiece().getMorph() == "nonvoid" and matrix[1][0].getPiece().getMorph() == "nonvoid" and \
             matrix[2][0].getPiece().getMorph() == "nonvoid" and matrix[3][0].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the rows of the column 1"
                 return True
         if matrix[0][1].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][1].getPiece() != 0:
             if matrix[0][1].getPiece().getMorph() == "void" and matrix[1][1].getPiece().getMorph() == "void" and \
             matrix[2][1].getPiece().getMorph() == "void" and matrix[3][1].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the rows of the column 2"
                 return True
             elif matrix[0][1].getPiece().getMorph() == "nonvoid" and matrix[1][1].getPiece().getMorph() == "nonvoid" and \
             matrix[2][1].getPiece().getMorph() == "nonvoid" and matrix[3][1].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the rows of the column 2"
                 return True
         if matrix[0][2].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][2].getPiece() != 0:
             if matrix[0][2].getPiece().getMorph() == "void" and matrix[1][2].getPiece().getMorph() == "void" and \
             matrix[2][2].getPiece().getMorph() == "void" and matrix[3][2].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the rows of the column 3"
                 return True
             elif matrix[0][2].getPiece().getMorph() == "nonvoid" and matrix[1][2].getPiece().getMorph() == "nonvoid" and \
             matrix[2][2].getPiece().getMorph() == "nonvoid" and matrix[3][2].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the rows of the column 3"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][3].getPiece() != 0 and matrix[2][3].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][3].getPiece().getMorph() == "void" and matrix[1][3].getPiece().getMorph() == "void" and \
             matrix[2][3].getPiece().getMorph() == "void" and matrix[3][3].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in the rows of the column 4"
                 return True
             elif matrix[0][3].getPiece().getMorph() == "nonvoid" and matrix[1][3].getPiece().getMorph() == "nonvoid" and \
             matrix[2][3].getPiece().getMorph() == "nonvoid" and matrix[3][3].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in the rows of the column 4"
                 return True
-        # diagonal
+        # diagonals
         if matrix[0][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][0].getPiece().getMorph() == "void" and matrix[1][1].getPiece().getMorph() == "void" and \
             matrix[2][2].getPiece().getMorph() == "void" and matrix[3][3].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in  diagonal"
                 return True
             elif matrix[0][0].getPiece().getMorph() == "nonvoid" and matrix[1][1].getPiece().getMorph() == "nonvoid" and \
             matrix[2][2].getPiece().getMorph() == "nonvoid" and matrix[3][3].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in diagonal"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][3].getPiece().getMorph() == "void" and matrix[1][2].getPiece().getMorph() == "void" and \
             matrix[2][1].getPiece().getMorph() == "void" and matrix[3][0].getPiece().getMorph() == "void" and win == False:
+                reason = "The user won with the void pieces in diagonal"
                 return True
             elif matrix[0][3].getPiece().getMorph() == "nonvoid" and matrix[1][2].getPiece().getMorph() == "nonvoid" and \
             matrix[2][1].getPiece().getMorph() == "nonvoid" and matrix[3][0].getPiece().getMorph() == "nonvoid" and win == False:
+                reason = "The user won with the nonvoid pieces in diagonal"
                 return True
 
         # shape
-        # i
+        # rows
         if matrix[0][0].getPiece() != 0 and matrix[0][1].getPiece() != 0 and matrix[0][2].getPiece() != 0 and matrix[0][3].getPiece() != 0:
             if matrix[0][0].getPiece().getShape() == "circle" and matrix[0][1].getPiece().getShape() == "circle" and \
             matrix[0][2].getPiece().getShape() == "circle" and matrix[0][3].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the columns of the row 1"
                 return True
             elif matrix[0][0].getPiece().getShape() == "square" and matrix[0][1].getPiece().getShape() == "square" and \
             matrix[0][2].getPiece().getShape() == "square" and matrix[0][3].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the columns of the row 1"
                 return True
         if matrix[1][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[1][3].getPiece() != 0:
             if matrix[1][0].getPiece().getShape() == "circle" and matrix[1][1].getPiece().getShape() == "circle" and \
             matrix[1][2].getPiece().getShape() == "circle" and matrix[1][3].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the columns of the row 2"
                 return True
             elif matrix[1][0].getPiece().getShape() == "square" and matrix[1][1].getPiece().getShape() == "square" and \
             matrix[1][2].getPiece().getShape() == "square" and matrix[1][3].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the columns of the row 2"
                 return True
         if matrix[2][0].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[2][3].getPiece() != 0:
             if matrix[2][0].getPiece().getShape() == "circle" and matrix[2][1].getPiece().getShape() == "circle" and \
             matrix[2][2].getPiece().getShape() == "circle" and matrix[2][3].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the columns of the row 3"
                 return True
             elif matrix[2][0].getPiece().getShape() == "square" and matrix[2][1].getPiece().getShape() == "square" and \
             matrix[2][2].getPiece().getShape() == "square" and matrix[2][3].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the columns of the row 3"
                 return True
         if matrix[3][0].getPiece() != 0 and matrix[3][1].getPiece() != 0 and matrix[3][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[3][0].getPiece().getShape() == "circle" and matrix[3][1].getPiece().getShape() == "circle" and \
             matrix[3][2].getPiece().getShape() == "circle" and matrix[3][3].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the columns of the row 4"
                 return True
             elif matrix[3][0].getPiece().getShape() == "square" and matrix[3][1].getPiece().getShape() == "square" and \
             matrix[3][2].getPiece().getShape() == "square" and matrix[3][3].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the columns of the row 4"
                 return True
-        # j
+        # columns
         if matrix[0][0].getPiece() != 0 and matrix[1][0].getPiece() != 0 and matrix[2][0].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][0].getPiece().getShape() == "circle" and matrix[1][0].getPiece().getShape() == "circle" and \
             matrix[2][0].getPiece().getShape() == "circle" and matrix[3][0].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the rows of the column 1"
                 return True
             elif matrix[0][0].getPiece().getShape() == "square" and matrix[1][0].getPiece().getShape() == "square" and \
             matrix[2][0].getPiece().getShape() == "square" and matrix[3][0].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the rows of the column 1"
                 return True
         if matrix[0][1].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][1].getPiece() != 0:
             if matrix[0][1].getPiece().getShape() == "circle" and matrix[1][1].getPiece().getShape() == "circle" and \
             matrix[2][1].getPiece().getShape() == "circle" and matrix[3][1].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the rows of the column 2"
                 return True
             elif matrix[0][1].getPiece().getShape() == "square" and matrix[1][1].getPiece().getShape() == "square" and \
             matrix[2][1].getPiece().getShape() == "square" and matrix[3][1].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the rows of the column 2"
                 return True
         if matrix[0][2].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][2].getPiece() != 0:
             if matrix[0][2].getPiece().getShape() == "circle" and matrix[1][2].getPiece().getShape() == "circle" and \
             matrix[2][2].getPiece().getShape() == "circle" and matrix[3][2].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the rows of the column 3"
                 return True
             elif matrix[0][2].getPiece().getShape() == "square" and matrix[1][2].getPiece().getShape() == "square" and \
             matrix[2][2].getPiece().getShape() == "square" and matrix[3][2].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the rows of the column 3"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][3].getPiece() != 0 and matrix[2][3].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][3].getPiece().getShape() == "circle" and matrix[1][3].getPiece().getShape() == "circle" and \
             matrix[2][3].getPiece().getShape() == "circle" and matrix[3][3].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in the rows of the column 4"
                 return True
             elif matrix[0][3].getPiece().getShape() == "square" and matrix[1][3].getPiece().getShape() == "square" and \
             matrix[2][3].getPiece().getShape() == "square" and matrix[3][3].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in the rows of the column 4"
                 return True
-        # diagonal
+        # diagonals
         if matrix[0][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][0].getPiece().getShape() == "circle" and matrix[1][1].getPiece().getShape() == "circle" and \
             matrix[2][2].getPiece().getShape() == "circle" and matrix[3][3].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in diagonal"
                 return True
             elif matrix[0][0].getPiece().getShape() == "square" and matrix[1][1].getPiece().getShape() == "square" and \
             matrix[2][2].getPiece().getShape() == "square" and matrix[3][3].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in diagonal"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix [3][0].getPiece() != 0:
             if matrix[0][3].getPiece().getShape() == "circle" and matrix[1][2].getPiece().getShape() == "circle" and \
             matrix[2][1].getPiece().getShape() == "circle" and matrix[3][0].getPiece().getShape() == "circle" and win == False:
+                reason = "The user won with the circle pieces in diagonal"
                 return True
             elif matrix[0][3].getPiece().getShape() == "square" and matrix[1][2].getPiece().getShape() == "square" and \
             matrix[2][1].getPiece().getShape() == "square" and matrix[3][0].getPiece().getShape() == "square" and win == False:
+                reason = "The user won with the square pieces in diagonal"
                 return True
 
+
         # color
-        # i
+        # rows
         if matrix[0][0].getPiece() != 0 and matrix[0][1].getPiece() != 0 and matrix[0][2].getPiece() != 0 and matrix[0][3].getPiece() != 0:
             if matrix[0][0].getPiece().getColor() == "red" and matrix[0][1].getPiece().getColor() == "red" and \
             matrix[0][2].getPiece().getColor() == "red" and matrix[0][3].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the columns of the row 1"
                 return True
             elif matrix[0][0].getPiece().getColor() == "blue" and matrix[0][1].getPiece().getColor() == "blue" and \
             matrix[0][2].getPiece().getColor() == "blue" and matrix[0][3].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the columns of the row 1"
                 return True
         if matrix[1][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[1][3].getPiece() != 0:
             if matrix[1][0].getPiece().getColor() == "red" and matrix[1][1].getPiece().getColor() == "red" and \
             matrix[1][2].getPiece().getColor() == "red" and matrix[1][3].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the columns of the row 2"
                 return True
             elif matrix[1][0].getPiece().getColor() == "blue" and matrix[1][1].getPiece().getColor() == "blue" and \
             matrix[1][2].getPiece().getColor() == "blue" and matrix[1][3].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the columns of the row 2"
                 return True
         if matrix[2][0].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[2][3].getPiece() != 0:
             if matrix[2][0].getPiece().getColor() == "red" and matrix[2][1].getPiece().getColor() == "red" and \
             matrix[2][2].getPiece().getColor() == "red" and matrix[2][3].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the columns of the row 3"
                 return True
             elif matrix[2][0].getPiece().getColor() == "blue" and matrix[2][1].getPiece().getColor() == "blue" and \
             matrix[2][2].getPiece().getColor() == "blue" and matrix[2][3].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the columns of the row 3"
                 return True
         if matrix[3][0].getPiece() != 0 and matrix[3][1].getPiece() != 0 and matrix[3][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[3][0].getPiece().getColor() == "red" and matrix[3][1].getPiece().getColor() == "red" and \
             matrix[3][2].getPiece().getColor() == "red" and matrix[3][3].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the columns of the row 4"
                 return True
             elif matrix[3][0].getPiece().getColor() == "blue" and matrix[3][1].getPiece().getColor() == "blue" and \
             matrix[3][2].getPiece().getColor() == "blue" and matrix[3][3].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the columns of the row 4"
                 return True
-        # j
+        # columns
         if matrix[0][0].getPiece() != 0 and matrix[1][0].getPiece() != 0 and matrix[2][0].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][0].getPiece().getColor() == "red" and matrix[1][0].getPiece().getColor() == "red" and \
             matrix[2][0].getPiece().getColor() == "red" and matrix[3][0].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the rows of the column 1"
                 return True
             elif matrix[0][0].getPiece().getColor() == "blue" and matrix[1][0].getPiece().getColor() == "blue" and \
             matrix[2][0].getPiece().getColor() == "blue" and matrix[3][0].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the rows of the column 1"
                 return True
         if matrix[0][1].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][1].getPiece() != 0:
             if matrix[0][1].getPiece().getColor() == "red" and matrix[1][1].getPiece().getColor() == "red" and \
             matrix[2][1].getPiece().getColor() == "red" and matrix[3][1].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the rows of the column 2"
                 return True
             elif matrix[0][1].getPiece().getColor() == "blue" and matrix[1][1].getPiece().getColor() == "blue" and \
             matrix[2][1].getPiece().getColor() == "blue" and matrix[3][1].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the rows of the column 2"
                 return True
         if matrix[0][2].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][2].getPiece() != 0:
             if matrix[0][2].getPiece().getColor() == "red" and matrix[1][2].getPiece().getColor() == "red" and \
             matrix[2][2].getPiece().getColor() == "red" and matrix[3][2].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the rows of the column 3"
                 return True
             elif matrix[0][2].getPiece().getColor() == "blue" and matrix[1][2].getPiece().getColor() == "blue" and \
             matrix[2][2].getPiece().getColor() == "blue" and matrix[3][2].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the rows of the column 3"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][3].getPiece() != 0 and matrix[2][3].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][3].getPiece().getColor() == "red" and matrix[1][3].getPiece().getColor() == "red" and \
             matrix[2][3].getPiece().getColor() == "red" and matrix[3][3].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in the rows of the column 4"
                 return True
             elif matrix[0][3].getPiece().getColor() == "blue" and matrix[1][3].getPiece().getColor() == "blue" and \
             matrix[2][3].getPiece().getColor() == "blue" and matrix[3][3].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in the rows of the column 4"
                 return True
-        # diagonal
+        # diagonals
         if matrix[0][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][0].getPiece().getColor() == "red" and matrix[1][1].getPiece().getColor() == "red" and \
             matrix[2][2].getPiece().getColor() == "red" and matrix[3][3].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in diagonal"
                 return True
             elif matrix[0][0].getPiece().getColor() == "blue" and matrix[1][1].getPiece().getColor() == "blue" and \
             matrix[2][2].getPiece().getColor() == "blue" and matrix[3][3].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in diagonal"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][3].getPiece().getColor() == "red" and matrix[1][2].getPiece().getColor() == "red" and \
             matrix[2][1].getPiece().getColor() == "red" and matrix[3][0].getPiece().getColor() == "red" and win == False:
+                reason = "The user won with the red pieces in diagonal"
                 return True
             elif matrix[0][3].getPiece().getColor() == "blue" and matrix[1][2].getPiece().getColor() == "blue" and \
             matrix[2][1].getPiece().getColor() == "blue" and matrix[3][0].getPiece().getColor() == "blue" and win == False:
+                reason = "The user won with the blue pieces in diagonal"
                 return True
 
-
         # size
-        # i
+        # rows
         if matrix[0][0].getPiece() != 0 and matrix[0][1].getPiece() != 0 and matrix[0][2].getPiece() != 0 and matrix[0][3].getPiece() != 0:
             if matrix[0][0].getPiece().getSize() == "big" and matrix[0][1].getPiece().getSize() == "big" and \
             matrix[0][2].getPiece().getSize() == "big" and matrix[0][3].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the columns of the row 1"
                 return True
             elif matrix[0][0].getPiece().getSize() == "small" and matrix[0][1].getPiece().getSize() == "small" and \
             matrix[0][2].getPiece().getSize() == "small" and matrix[0][3].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the columns of the row 1"
                 return True
         if matrix[1][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[1][3].getPiece() != 0:
             if matrix[1][0].getPiece().getSize() == "big" and matrix[1][1].getPiece().getSize() == "big" and \
             matrix[1][2].getPiece().getSize() == "big" and matrix[1][3].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the columns of the row 2"
                 return True
             elif matrix[1][0].getPiece().getSize() == "small" and matrix[1][1].getPiece().getSize() == "small" and \
             matrix[1][2].getPiece().getSize() == "small" and matrix[1][3].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the columns of the row 2"
                 return True
         if matrix[2][0].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[2][3].getPiece() != 0:
             if matrix[2][0].getPiece().getSize() == "big" and matrix[2][1].getPiece().getSize() == "big" and \
             matrix[2][2].getPiece().getSize() == "big" and matrix[2][3].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the columns of the row 3"
                 return True
             elif matrix[2][0].getPiece().getSize() == "small" and matrix[2][1].getPiece().getSize() == "small" and \
             matrix[2][2].getPiece().getSize() == "small" and matrix[2][3].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the columns of the row 3"
                 return True
         if matrix[3][0].getPiece() != 0 and matrix[3][1].getPiece() != 0 and matrix[3][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[3][0].getPiece().getSize() == "big" and matrix[3][1].getPiece().getSize() == "big" and \
             matrix[3][2].getPiece().getSize() == "big" and matrix[3][3].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the columns of the row 4"
                 return True
             elif matrix[3][0].getPiece().getSize() == "small" and matrix[3][1].getPiece().getSize() == "small" and \
             matrix[3][2].getPiece().getSize() == "small" and matrix[3][3].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the columns of the row 4"
                 return True
-        # j
+        # columns
         if matrix[0][0].getPiece() != 0 and matrix[1][0].getPiece() != 0 and matrix[2][0].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][0].getPiece().getSize() == "big" and matrix[1][0].getPiece().getSize() == "big" and \
             matrix[2][0].getPiece().getSize() == "big" and matrix[3][0].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the rows of the column 1"
                 return True
             elif matrix[0][0].getPiece().getSize() == "small" and matrix[1][0].getPiece().getSize() == "small" and \
             matrix[2][0].getPiece().getSize() == "small" and matrix[3][0].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the rows of the column 1"
                 return True
         if matrix[0][1].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][1].getPiece() != 0:
             if matrix[0][1].getPiece().getSize() == "big" and matrix[1][1].getPiece().getSize() == "big" and \
             matrix[2][1].getPiece().getSize() == "big" and matrix[3][1].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the rows of the column 2"
                 return True
             elif matrix[0][1].getPiece().getSize() == "small" and matrix[1][1].getPiece().getSize() == "small" and \
             matrix[2][1].getPiece().getSize() == "small" and matrix[3][1].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the rows of the column 2"
                 return True
         if matrix[0][2].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][2].getPiece() != 0:
             if matrix[0][2].getPiece().getSize() == "big" and matrix[1][2].getPiece().getSize() == "big" and \
             matrix[2][2].getPiece().getSize() == "big" and matrix[3][2].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the rows of the column 3"
                 return True
             elif matrix[0][2].getPiece().getSize() == "small" and matrix[1][2].getPiece().getSize() == "small" and \
             matrix[2][2].getPiece().getSize() == "small" and matrix[3][2].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the rows of the column 3"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][3].getPiece() != 0 and matrix[2][3].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][3].getPiece().getSize() == "big" and matrix[1][3].getPiece().getSize() == "big" and \
             matrix[2][3].getPiece().getSize() == "big" and matrix[3][3].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in the rows of the column 4"
                 return True
             elif matrix[0][3].getPiece().getSize() == "small" and matrix[1][3].getPiece().getSize() == "small" and \
             matrix[2][3].getPiece().getSize() == "small" and matrix[3][3].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in the rows of the column 4"
                 return True
-        # diagonal
+        # diagonals
         if matrix[0][0].getPiece() != 0 and matrix[1][1].getPiece() != 0 and matrix[2][2].getPiece() != 0 and matrix[3][3].getPiece() != 0:
             if matrix[0][0].getPiece().getSize() == "big" and matrix[1][1].getPiece().getSize() == "big" and \
             matrix[2][2].getPiece().getSize() == "big" and matrix[3][3].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in diagonal"
                 return True
             elif matrix[0][0].getPiece().getSize() == "small" and matrix[1][1].getPiece().getSize() == "small" and \
             matrix[2][2].getPiece().getSize() == "small" and matrix[3][3].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in diagonal"
                 return True
         if matrix[0][3].getPiece() != 0 and matrix[1][2].getPiece() != 0 and matrix[2][1].getPiece() != 0 and matrix[3][0].getPiece() != 0:
             if matrix[0][3].getPiece().getSize() == "big" and matrix[1][2].getPiece().getSize() == "big" and \
             matrix[2][1].getPiece().getSize() == "big" and matrix[3][0].getPiece().getSize() == "big" and win == False:
+                reason = "The user won with the big pieces in diagonal"
                 return True
             elif matrix[0][3].getPiece().getSize() == "small" and matrix[1][2].getPiece().getSize() == "small" and \
             matrix[2][1].getPiece().getSize() == "small" and matrix[3][0].getPiece().getSize() == "small" and win == False:
+                reason = "The user won with the small pieces in diagonal"
                 return True
 
     #deactives all the pieces that are selected to select another one
@@ -455,6 +538,8 @@ def main(usr1,usr2):
 
     #main loop of the game
     while True:
+
+
         #gets the position of the mouse
         mouse.left,mouse.top = pygame.mouse.get_pos()
 
@@ -587,9 +672,8 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
-                if mouse.colliderect(i0j1.getRect()) and selected!=0 and selected.getUsed() == False and i0j1.getUsed() == False:
 
+                if mouse.colliderect(i0j1.getRect()) and selected!=0 and selected.getUsed() == False and i0j1.getUsed() == False:
                     selected.setPositionX(521-28)
                     selected.setPositionY(69-28)
                     i0j1.setUsed(True)
@@ -615,7 +699,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i0j2.getRect()) and selected!=0 and selected.getUsed() == False and i0j2.getUsed() == False:
                     selected.setPositionX(607-28)
                     selected.setPositionY(69-28)
@@ -642,7 +726,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i0j3.getRect()) and selected!=0 and selected.getUsed() == False and i0j3.getUsed() == False:
                     selected.setPositionX(694-28)
                     selected.setPositionY(69-28)
@@ -669,7 +753,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i1j0.getRect()) and selected!=0 and selected.getUsed() == False and i1j0.getUsed() == False:
                     selected.setPositionX(440-28)
                     selected.setPositionY(151-28)
@@ -696,7 +780,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i1j1.getRect()) and selected!=0 and selected.getUsed() == False and i1j1.getUsed() == False:
                     selected.setPositionX(521-28)
                     selected.setPositionY(151-28)
@@ -723,7 +807,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i1j2.getRect()) and selected!=0 and selected.getUsed() == False and i1j2.getUsed() == False:
                     selected.setPositionX(607-28)
                     selected.setPositionY(151-28)
@@ -750,7 +834,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i1j3.getRect()) and selected!=0 and selected.getUsed() == False and i1j3.getUsed() == False:
                     selected.setPositionX(694-28)
                     selected.setPositionY(151-28)
@@ -777,7 +861,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i2j0.getRect()) and selected!=0 and selected.getUsed() == False and i2j0.getUsed() == False:
                     selected.setPositionX(440-28)
                     selected.setPositionY(234-28)
@@ -804,7 +888,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i2j1.getRect()) and selected!=0 and selected.getUsed() == False and i2j1.getUsed() == False:
                     selected.setPositionX(521-28)
                     selected.setPositionY(234-28)
@@ -831,7 +915,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i2j2.getRect()) and selected!=0 and selected.getUsed() == False and i2j2.getUsed() == False:
                     selected.setPositionX(607-28)
                     selected.setPositionY(234-28)
@@ -858,7 +942,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i2j3.getRect()) and selected!=0 and selected.getUsed() == False and i2j3.getUsed() == False:
                     selected.setPositionX(694-28)
                     selected.setPositionY(234-28)
@@ -885,7 +969,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i3j0.getRect()) and selected!=0 and selected.getUsed() == False and i3j0.getUsed() == False:
                     selected.setPositionX(440-28)
                     selected.setPositionY(315-28)
@@ -912,7 +996,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i3j1.getRect()) and selected!=0 and selected.getUsed() == False and i3j1.getUsed() == False:
                     selected.setPositionX(521-28)
                     selected.setPositionY(315-28)
@@ -939,7 +1023,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i3j2.getRect()) and selected!=0 and selected.getUsed() == False and i3j2.getUsed() == False:
                     selected.setPositionX(607-28)
                     selected.setPositionY(315-28)
@@ -966,7 +1050,7 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
                 if mouse.colliderect(i3j3.getRect()) and selected!=0 and selected.getUsed() == False and i3j3.getUsed() == False:
                     selected.setPositionX(694-28)
                     selected.setPositionY(315-28)
@@ -993,11 +1077,44 @@ def main(usr1,usr2):
 
                     if setWin() == True:
                         win = True
-                        print("ALGUIEN GANÓ!")
+
+                if mouse.colliderect(quartobtn):
+                    if win == True:
+                        if turn == False and usr2.getScore() > 0:
+                            print("Ganó "+usr1.getName()+"!!")
+                            score1 = usr1.getScore()
+                            score1 += usr2.getScore()
+                            usr1.setScore(score1)
+                        elif turn == True and usr1.getScore() > 0:
+                            print("Ganó "+usr2.getName()+"!!")
+                            score2 = usr2.getScore()
+                            score2 += usr1.getScore()
+                            usr1.setScore(score2)
+                    elif win == False:
+                        if usr1.getScore() == usr2.getScore() and i0j0.getPiece()!=0 and i0j1.getPiece()!=0 and i0j2.getPiece()!=0 and i0j3.getPiece()!=0 and \
+                            i1j0.getPiece()!=0 and i1j1.getPiece()!=0  and i1j2.getPiece()!=0 and i1j3.getPiece()!=0 and \
+                            i2j0.getPiece() != 0 and i2j1.getPiece() != 0 and i2j2.getPiece() != 0 and i2j3.getPiece() != 0 and \
+                            i3j0.getPiece() != 0 and i3j1.getPiece() != 0 and i3j2.getPiece() != 0 and i3j3.getPiece() != 0:
+                            score1 = usr1.getScore()
+                            score1 -= 5
+                            usr1.setScore(score1)
+                            score2 = usr2.getScore()
+                            score2 -= 5
+                            usr1.setScore(score2)
+                        else:
+                            if turn == False:
+                                score1 = usr1.getScore()
+                                score1 -= 2
+                                usr1.setScore(score1)
+                            else:
+                                score2 = usr2.getScore()
+                                score2 -= 2
+                                usr1.setScore(score2)
+
 
         #updates the images and rectangles of the game
         root.blit(table, (400, 30))
-        #root.blit(quarto, ())
+        root.blit(quarto, (235,36))
         for piece in pieceList:
             root.blit(piece.getImage(), (piece.getPositionX(), piece.getPositionY()))
         pygame.draw.rect(root, (0, 0, 0), blackrect)
